@@ -1,5 +1,5 @@
 export const WIDTH = 5;
-export const HEIGHT = 6;
+export const HEIGHT = 7;
 
 export function createCell(id: number, letter: string = " "): BoardCell {
 	return {
