@@ -5,6 +5,7 @@ export function createCell(id: number, letter: string = " "): BoardCell {
 	return {
 		id,
 		letter,
+		color: "white",
 		correctPlace: false,
 		correctLetter: false,
 	};
@@ -13,8 +14,8 @@ export function createCell(id: number, letter: string = " "): BoardCell {
 export function createRow(id: number): BoardRow {
 	const row: BoardRow = {
 		id,
-		cells: {}
-	}
+		cells: {},
+	};
 	for (let i = 0; i < WIDTH; i++) {
 		row.cells[i] = createCell(i);
 	}

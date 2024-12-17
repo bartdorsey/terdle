@@ -1,10 +1,25 @@
 import React, { createContext, useState } from "react";
-import { createBoard } from '../lib/board';
+import { createBoard } from "../lib/board";
+
+const WORD_LIST = [
+	"apple",
+	"brave",
+	"charm",
+	"drape",
+	"eagle",
+	"flame",
+	"grape",
+	"haste",
+	"inkle",
+	"joust",
+];
+const SELECTED_WORD = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
 
 interface GameContextValue {
 	board: Board;
 	rowId: number;
 	columnId: number;
+	selectedWord: string;
 
 	setBoard: (board: Board) => void;
 	setRowId: (rowId: number) => void;
@@ -17,9 +32,10 @@ export const GameContext = createContext<GameContextValue>({
 	board: initialBoard,
 	rowId: 0,
 	columnId: 0,
-	setRowId() { },
-	setColumnId() { },
-	setBoard() { }
+	selectedWord: SELECTED_WORD ?? "",
+	setRowId() {},
+	setColumnId() {},
+	setBoard() {},
 });
 
 type GameProviderProps = {
@@ -37,7 +53,8 @@ export default function GameProvider({ children }: GameProviderProps) {
 		columnId,
 		setColumnId,
 		setRowId,
-		setBoard
+		setBoard,
+		selectedWord: SELECTED_WORD ?? "",
 	};
 
 	return (

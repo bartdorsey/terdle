@@ -1,17 +1,18 @@
 type BoardCell = {
-	id: number,
+	id: number;
 	letter: string | null;
+	color: string;
 	correctPlace: boolean;
 	correctLetter: boolean;
 };
 
 type BoardRow = {
-	id: number,
+	id: number;
 	cells: {
 		[cellId: number]: BoardCell;
-	}
-}
+	};
+};
 
 type Board = {
-	[rowId: number]: BoardRow
-}
+	[rowId: number]: BoardRow;
+};
